@@ -10,6 +10,10 @@
  */
 namespace Resources;
 
+/* untuk mengecek proses dilakukan mellaui ajax*/
+if( ! defined('IS_AJAX') )
+    define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');	
+
 class Request
 {    
     /**

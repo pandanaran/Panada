@@ -33,8 +33,11 @@ final class Uri
 	    $this->pathUri = array_slice($_SERVER['argv'], 1);
 	    return;
 	}
+	//tambahan aviq
+	$url1 = isset($_SERVER['ORIG_PATH_INFO']) ? $_SERVER['ORIG_PATH_INFO']:'';
+	$selfArray = explode('/', rtrim($_SERVER['PHP_SELF'].$url1, '/'));
 	
-	$selfArray      		= explode('/', rtrim($_SERVER['PHP_SELF'], '/'));
+	//$selfArray      		= explode('/', rtrim($_SERVER['PHP_SELF'], '/'));
 	$selfKey        		= array_search(INDEX_FILE, $selfArray);
 	$this->pathUri  		= array_slice($selfArray, ($selfKey + 1));
 	$this->baseUri  		= $this->isHttps() ? 'https://':'http://';
